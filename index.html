@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To My Fav 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+height:100vh;
+overflow:hidden;
+font-family:'Quicksand',sans-serif;
+color:white;
+background:#000814;
+}
+
+/* 🌈 Pastel Rainbow Night Sky */
+.bg{
+position:fixed;
+width:200%;
+height:200%;
+background:linear-gradient(
+120deg,
+#0f1021,
+#2a2a72,
+#8e44ad,
+#ff9a9e,
+#fad0c4,
+#89f7fe,
+#0f1021
+);
+background-size:600% 600%;
+animation:gradientMove 30s ease infinite;
+z-index:-5;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* 🌙 Glowing Moon */
+.moon{
+position:fixed;
+top:60px;
+right:80px;
+width:120px;
+height:120px;
+background:radial-gradient(circle at 30% 30%, #fff, #fdf6c9 60%, #fceabb);
+border-radius:50%;
+box-shadow:0 0 40px #fffacd, 0 0 80px #fff;
+animation:moonGlow 4s ease-in-out infinite alternate;
+z-index:-1;
+}
+
+@keyframes moonGlow{
+from{box-shadow:0 0 30px #fffacd, 0 0 60px #fff;}
+to{box-shadow:0 0 60px #fffacd, 0 0 120px #fff;}
+}
+
+/* ✨ Stars */
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite alternate;
+box-shadow:0 0 8px white;
+}
+
+@keyframes twinkle{
+from{opacity:0.2;}
+to{opacity:1;}
+}
+
+/* 💖 Constellation Hearts */
+.heartConst{
+position:absolute;
+font-size:14px;
+color:#ffb6ff;
+opacity:0.8;
+animation:heartTwinkle 4s infinite alternate;
+}
+
+@keyframes heartTwinkle{
+from{opacity:0.3; transform:scale(1);}
+to{opacity:1; transform:scale(1.3);}
+}
+
+/* Falling Hearts */
+.fall{
+position:absolute;
+top:-10px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* Screens */
+.screen{
+position:absolute;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+}
+
+.active{display:flex;}
+
+/* Card */
+.card{
+background:rgba(255,255,255,0.12);
+backdrop-filter:blur(25px);
+padding:70px;
+border-radius:40px;
+box-shadow:0 20px 60px rgba(0,0,0,0.4);
+max-width:600px;
+border:2px solid rgba(255,255,255,0.2);
+}
+
+/* Headings */
+h1{
+font-family:'Pacifico',cursive;
+font-size:3.2rem;
+color:#fff;
+text-shadow:0 0 10px #ffb6ff;
+}
+
+.sub{
+font-size:1.1rem;
+margin-top:15px;
+line-height:1.7;
+}
+
+/* Input */
+.input{
+margin-top:35px;
+padding:16px;
+border-radius:50px;
+border:none;
+background:rgba(255,255,255,0.2);
+color:white;
+text-align:center;
+width:280px;
+outline:none;
+}
+
+/* Button */
+.button{
+margin-top:35px;
+padding:15px 45px;
+border:none;
+border-radius:50px;
+background:linear-gradient(45deg,#ff9a9e,#fad0c4,#ffb6ff);
+color:black;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.button:hover{
+transform:scale(1.1);
+}
+
+/* Love Text */
+.love{
+font-family:'Pacifico',cursive;
+font-size:4.5rem;
+color:#fff;
+text-shadow:0 0 15px #ffb6ff,0 0 30px #ff69b4;
+animation:pulse 2s infinite alternate;
+}
+
+@keyframes pulse{
+from{transform:scale(1);}
+to{transform:scale(1.15);}
+}
+
+/* Fireworks */
+.firework{
+position:absolute;
+width:15px;
+height:15px;
+border-radius:50%;
+animation:explode 1.4s ease-out forwards;
+}
+
+@keyframes explode{
+from{transform:scale(1);opacity:1;}
+to{transform:scale(55);opacity:0;}
+}
+
+.error{margin-top:15px;color:#ffd6e8;}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="moon"></div>
+
+<audio id="bgMusic" src="music.mp3" loop></audio>
+
+<!-- SCREEN 1 -->
+<div id="screen1" class="screen active">
+<div class="card">
+<h1>Hey bestie 💖</h1>
+<div class="sub">Only the real VIP can enter 😌✨</div>
+
+<input id="passcode" type="password" placeholder="Enter your name..." class="input">
+
+<button onclick="checkCode()" class="button">
+Enter 🌸
+</button>
+
+<p id="error" class="error"></p>
+</div>
+</div>
+
+<!-- SCREEN 2 -->
+<div id="screen2" class="screen">
+<div class="card">
+<h1>Happy Valentine's 💕</h1>
+<p class="sub">
+Lowkey you’re my favorite person fr 🫶🏽
+As in, I appreciate you so much it’s crazy. Thank you for the vibes, the random convos, the support, and even those “si unibyuie icecreaam.nlete cookies” moments 😂💸
+
+Life is just softer and better with you in it. We might not always have money, but our friendship? Premium. No subscription needed 😌✨ 😂💸 <br><br>
+You make life cuter fr 💖✨
+</p>
+
+<button onclick="nextScreen(3)" class="button">
+Wait… One More Thing 🌙
+</button>
+</div>
+</div>
+
+<!-- SCREEN 3 -->
+<div id="screen3" class="screen">
+<div class="card">
+<div class="love">I LOVE YOU 💖</div>
+<p class="sub">Forever my favorite person 🌸✨</p>
+<button onclick="fireworks()" class="button">
+Celebrate 🎆
+</button>
+</div>
+</div>
+
+<script>
+
+const music = document.getElementById("bgMusic");
+document.body.addEventListener("click", function () {
+music.volume = 0.6;
+music.play().catch(()=>{});
+}, { once: true });
+
+/* Stars */
+for(let i=0;i<80;i++){
+let star=document.createElement("div");
+star.className="star";
+star.style.top=Math.random()*100+"vh";
+star.style.left=Math.random()*100+"vw";
+document.body.appendChild(star);
+}
+
+/* Constellation Hearts */
+for(let i=0;i<25;i++){
+let heart=document.createElement("div");
+heart.className="heartConst";
+heart.innerHTML="💖";
+heart.style.top=Math.random()*100+"vh";
+heart.style.left=Math.random()*100+"vw";
+document.body.appendChild(heart);
+}
+
+/* Falling Hearts */
+setInterval(()=>{
+let item=document.createElement("div");
+item.className="fall";
+item.innerHTML="💗";
+item.style.left=Math.random()*100+"vw";
+item.style.fontSize=(Math.random()*25+20)+"px";
+item.style.animationDuration=(Math.random()*7+6)+"s";
+document.body.appendChild(item);
+setTimeout(()=>item.remove(),13000);
+},600);
+
+function checkCode(){
+let code=document.getElementById("passcode").value.toLowerCase();
+if(code==="victor"){
+nextScreen(2);
+}else{
+document.getElementById("error").innerHTML="Oopsieee 😜 try again cutie.";
+}
+}
+
+function nextScreen(num){
+document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+document.getElementById("screen"+num).classList.add("active");
+}
+
+function fireworks(){
+let colors=["#ffffff","#ff69b4","#ffb6ff","#87cefa","#ffd700"];
+for(let i=0;i<60;i++){
+let fire=document.createElement("div");
+fire.className="firework";
+fire.style.top=Math.random()*80+"vh";
+fire.style.left=Math.random()*100+"vw";
+fire.style.background=colors[Math.floor(Math.random()*colors.length)];
+document.body.appendChild(fire);
+setTimeout(()=>fire.remove(),1400);
+}
+}
+
+</script>
+
+</body>
+</html>
